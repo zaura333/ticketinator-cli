@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">
+            jdbc:mysql://localhost:3306/ticketsystem?serverTimezone=Europe/Warsaw&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=UTF-8
+        </property>
+        <property name="connection.username">ticketuser</property>
+        <property name="connection.password">ticketpass</property>
+
+        <!-- MySQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Auto-create / update schema -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Connection pool (C3P0-lite built-in) -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- Store UUIDs as VARCHAR(36) strings instead of BINARY -->
+        <property name="hibernate.type.preferred_uuid_jdbc_type">CHAR</property>
+
+        <!-- Disable verbose SQL output (set to true for debugging) -->
+        <property name="show_sql">false</property>
+        <property name="format_sql">false</property>
+
+        <!-- Entity mappings -->
+        <mapping class="com.ticketsystem.model.Client"/>
+        <mapping class="com.ticketsystem.model.User"/>
+        <mapping class="com.ticketsystem.model.Operator"/>
+        <mapping class="com.ticketsystem.model.Administrator"/>
+        <mapping class="com.ticketsystem.model.Ticket"/>
+        <mapping class="com.ticketsystem.model.Comment"/>
+        <mapping class="com.ticketsystem.model.TicketLog"/>
+    </session-factory>
+</hibernate-configuration>
