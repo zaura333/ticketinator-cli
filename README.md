@@ -183,6 +183,7 @@ ticket-system/
 
 ## Rozszerzenia (sugestie na przyszłość)
 
+- Funkcjonalność autentyfikacji klienta (logowanie, przeglądanie własnych zleceń)
 - Workflow J jako **cron / scheduled task** (np. Spring Scheduler)
 - Zmiana hasła przez zalogowanego użytkownika
 - Eksport zleceń do CSV / PDF
