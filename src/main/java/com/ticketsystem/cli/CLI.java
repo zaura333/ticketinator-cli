@@ -36,6 +36,8 @@ public class CLI {
     private final WorkflowN workflowN = new WorkflowN();
     private final WorkflowO workflowO = new WorkflowO();
     private final WorkflowP workflowP = new WorkflowP();
+    private final WorkflowR workflowR = new WorkflowR();
+    private final WorkflowS workflowS = new WorkflowS();
 
     public CLI() {
         this.scanner = new Scanner(System.in);
@@ -84,6 +86,7 @@ public class CLI {
             case 'D' -> requireAtLeastOperator(() -> workflowD.execute(scanner));
             case 'F' -> requireAtLeastOperator(() -> workflowF.execute(scanner));
             case 'K' -> requireAtLeastOperator(() -> workflowK.execute(scanner));
+            case 'R' -> requireAtLeastOperator(() -> workflowR.execute(scanner));
             case 'O' -> requireLoggedIn(() -> workflowO.execute(scanner));
 
             // ── Admin only ───────────────────────────────────────────────────
@@ -93,6 +96,7 @@ public class CLI {
             case 'J' -> requireAdmin(() -> workflowJ.execute(scanner));
             case 'L' -> requireAdmin(() -> workflowL.execute(scanner));
             case 'M' -> requireAdmin(() -> workflowM.execute(scanner));
+            case 'S' -> requireAdmin(() -> workflowS.execute(scanner));
 
             default -> ConsoleUtil.printError("Nieznana opcja: '" + choice + "'. Wybierz opcję z menu.");
         }

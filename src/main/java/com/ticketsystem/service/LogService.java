@@ -5,6 +5,7 @@ import com.ticketsystem.model.TicketLog;
 import com.ticketsystem.repository.LogRepository;
 import com.ticketsystem.util.SessionManager;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -44,5 +45,14 @@ public class LogService {
 
     public List<TicketLog> getLogsForTicket(Ticket ticket) {
         return logRepository.findByTicket(ticket);
+    }
+
+    /**
+     * Returns logs for a ticket within the given date-time range (inclusive).
+     */
+    public List<TicketLog> getLogsForTicketInRange(Ticket ticket,
+                                                    LocalDateTime from,
+                                                    LocalDateTime to) {
+        return logRepository.findByTicketAndDateRange(ticket, from, to);
     }
 }

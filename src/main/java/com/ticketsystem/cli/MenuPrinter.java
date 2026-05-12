@@ -39,6 +39,7 @@ public class MenuPrinter {
             System.out.println("  [D] Zmień status zlecenia");
             System.out.println("  [F] Przeglądaj zlecenia (wszystkie lub po statusie)");
             System.out.println("  [K] Moje zlecenia (przypisane do mnie)");
+            System.out.println("  [R] Przeglądaj komentarze zlecenia po UUID");
         }
 
         // ── Admin only ────────────────────────────────────────────────────────
@@ -50,6 +51,7 @@ public class MenuPrinter {
             System.out.println("  [J] Odśwież statusy (oznacz opóźnione)");
             System.out.println("  [L] Dodaj klienta");
             System.out.println("  [M] Usuń klienta");
+            System.out.println("  [S] Przeglądaj logi audytowe zlecenia");
         }
 
         // ── Account ───────────────────────────────────────────────────────────

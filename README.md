@@ -50,7 +50,7 @@ Lub w IntelliJ: uruchom klasę `com.ticketsystem.Main`.
 
 ## Pierwsze uruchomienie
 
-Przy pierwszym starcie aplikacja automatycznie tworzy konto administratora:
+Przy pierwszym starcie aplikacja automatycznie tworzy konto administratora oraz ładuje dane demo:
 
 ```
 Użytkownik:  admin
@@ -59,9 +59,21 @@ Hasło:       admin123
 
 > **Zmień hasło po pierwszym logowaniu** (funkcja w planach jako Workflow, na razie przez bezpośrednie uruchomienie WorkflowG i usunięcie starego konta).
 
+### Dane demo (ładowane automatycznie)
+
+Jeśli baza jest pusta, `DataSeeder` tworzy przy starcie gotowy zestaw danych testowych:
+
+| Zasób | Ilość | Szczegóły |
+|-------|-------|-----------|
+| Operatorzy | 2 | `jan.kowalski / haslo123`, `anna.nowak / haslo123` |
+| Klienci | 5 | Wiśniewski, Zielińska, Dąbrowski, Lewandowska, Wójcik |
+| Zlecenia | 9 | statusy: 3× NEW, 2× IN_PROGRESS, 1× DELAYED, 2× COMPLETED, 1× CANCELLED |
+| Komentarze | 25 | rozłożone po wszystkich zleceniach |
+| Logi audytu | 12 | zdarzenia tworzenia, startu, opóźnienia i zakończenia |
+
 ---
 
-## Dostępne operacje (Workflow A–P)
+## Dostępne operacje (Workflow A–S)
 
 | Klawisz | Nazwa | Kto może |
 |---------|-------|----------|
@@ -74,6 +86,7 @@ Hasło:       admin123
 | **D** | Zmień status zlecenia | Operator / Admin |
 | **F** | Przeglądaj listę zleceń | Operator / Admin |
 | **K** | Moje zlecenia (przypisane) | Operator / Admin |
+| **R** | Przeglądaj komentarze zlecenia po UUID | Operator / Admin |
 | **O** | Wyloguj się | Zalogowany |
 | **G** | Dodaj operatora / administratora | Admin |
 | **H** | Modyfikuj / usuń komentarz | Admin |
@@ -81,6 +94,7 @@ Hasło:       admin123
 | **J** | Odśwież statusy (oznacz opóźnione) | Admin |
 | **L** | Dodaj klienta | Admin |
 | **M** | Usuń klienta | Admin |
+| **S** | Przeglądaj logi audytowe zlecenia | Admin |
 | **Q** | Wyjście | Wszyscy |
 
 ---
@@ -136,7 +150,7 @@ ticket-system/
     │   ├── CLI.java            (pętla główna + dispatcher)
     │   ├── MenuPrinter.java
     │   └── workflows/
-    │       └── WorkflowA..P.java
+    │       └── WorkflowA..S.java
     └── util/
         ├── HibernateUtil.java
         ├── SessionManager.java
