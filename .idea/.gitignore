@@ -8,3 +8,5 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Copilot data migration file
+/copilot.data.migration.ask2agent.xml
